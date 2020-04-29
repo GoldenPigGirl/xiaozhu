@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style>
+			img{
+				width: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nod">
+			<h1>表格</h1>
+			<table border="1px"width="600px">
+				<tr>
+					<td>{{sctu}}</td>
+					<td>{{ents}}</td>
+					<td>{{stus}}</td>
+					<td>{{teso}}</td>
+					<td>{{imgs}}</td>
+				</tr>
+				<tr v-for="ensu in tucs">
+					<td>{{ensu.cektu}}</td>
+					<td>{{ensu.tsyus}}</td>
+					<td>{{ensu.nutes}}</td>
+					<td>{{ensu.tursn}}</td>
+					<td>
+						<img :src="ensu.tnes" >
+					</td>
+				</tr>
+			</table>
+			<!-- <img src="img/logo.png" > -->
+		</div>
+	</body>
+	<script>
+		var nas = new Vue({
+			el:"#nod",
+			data:{
+					sctu:"姓名",
+					ents:"性别",
+					stus:"学校",
+					teso:"学历",
+					imgs:"头像",
+				tucs:[{
+					cektu:"小明",
+					tsyus:"男",
+					nutes:"新乡",
+					tursn:"本科",
+					tnes:"img/logo.png"
+				}]
+				
+			},
+		})
+	</script>
+</html>

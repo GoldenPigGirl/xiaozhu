@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<title>父组件向子组件传值</title>
+	</head>
+	<body>
+		<div id="app">
+			<eams></eams>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {},
+				methods: {},
+				componentes: {
+					eams: {
+						template: '<h1>这是子组件</h1>',
+					},
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style typ-e="text/css">
+			#app{
+				color: white;
+				background-image:  url(img/2.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+				height: 600px;
+			}
+			fieldset {
+				margin: auto;
+				width: 500px;
+			}
+			input{
+				margin-top: 20px;
+			}
+			select{
+				margin-top: 20px;
+			}
+			table {
+				margin-top: 30px;
+				margin: auto;
+				width: 528px;
+				border: 2px solid white;
+			}
+			table{
+				margin-top: 20px;
+			}
+			#nodes{
+				width: 100px;
+				height: 20px;
+				border: none;
+				margin-top: 20px;
+				background-color: white;
+				border-radius: 5px;
+			}
+			#shente{
+				width: 100px;
+				height: 20px;
+				border: none;
+				margin-top: 20px;
+				background-color: white;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<fieldset>
+				<legend>学生信息输入系统</legend>
+				<div>姓名：
+				<input type="text" value="" placeholder="姓名/昵称" v-model="student.nemu"/>
+				</div>
+				<div>账号：
+				<input type="text" value="" placeholder="账户信息" v-model="student.account"/>
+				</div>
+				<div>性别：
+					<select v-model="student.gender">
+						<option value="女">女</option>
+						<option value="男">男</option>
+					</select>
+				</div>
+				<div>密码：
+				<input type="text" value="" placeholder="输入密码" v-model="student.word" />
+				</div>
+				<button id="nodes" @click="onmos">提交</button>
+			</fieldset>
+			<table>
+				<tr>
+					<td>姓名</td>
+					<td>账号</td>
+					<td>性别</td>
+					<td>密码</td>
+					<td>删除</td>
+				</tr>
+				<tr v-for="(ende,index) in ste">
+					<td>{{ende.nemu}}</td>
+					<td>{{ende.account}}</td>
+					<td>{{ende.gender}}</td>
+					<td>{{ende.word}}</td>
+					<td><button id="shente" type="button" @click="onmosen(index)" value="">删除</button></td>
+				</tr>
+				
+			</table>
+		</div>
+		<script>
+			var adds = new Vue({
+				el: "#app",
+				data: {
+					student:{
+						nemu:"",
+						account:"",
+						gender:"男",
+						word:""
+					},
+					ste: [{
+						nemu: "小明",
+						account: "1234567",
+						gender: "男",
+						word: "11111"
+					},
+					{
+						nemu: "莉莉",
+						account: "1236798",
+						gender: "女",
+						word: "44444"
+					},
+					{
+						nemu: "晓君",
+						account: "1270987",
+						gender: "男",
+						word: "88888"
+					}
+					]
+				},
+				methods:{
+					onmos:function() {
+						if(this.student.nemu==""){
+							alert("姓名不能为空");
+							return;
+						}
+						if(this.student.account==""){
+							alert("账号不能为空");
+							return;
+						}
+						if(this.student.gender==""){
+							alert("性别不能为空");
+							return;
+						}
+						if(this.student.word==""){
+							alert("密码不能为空");
+							return;
+						}
+						this.ste.unshift(this.student);
+						this.student={
+							nemu:"",
+							account:"",
+							gender:"男",
+							word:""
+						}
+					},
+					onmosen:function(index){
+						this.ste.splice(index,1);
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
